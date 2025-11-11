@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\EventType;
 use Illuminate\Http\Request;
-use Ramsey\Uuid\Rfc4122\Validator;
+use Illuminate\Support\Facades\Validator;
+
 
 class EventTypeController extends Controller
 {
@@ -15,6 +16,12 @@ class EventTypeController extends Controller
         if ($validator->fails()) {
             return response()->json($validator->errors(), 400);
         }
+
+        $type = EventType::create([
+            'description' => $request->description
+        ]);
+
+        return response()->json(['message' => 'Event Type Created', 'data' => $type], 201);
     }
     public function listEvents(EventType $type){
         $events = $type->events;

@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Event;
 use http\Env\Response;
+use App\Models\EventType;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 
 class EventController extends Controller
