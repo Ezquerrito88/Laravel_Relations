@@ -15,7 +15,7 @@ class Event extends Model
     public function users(){
         return $this->belongsToMany('App\Models\User')->withTimestamps();
 }
-    public function eventType(){
+    public function EventType(){
         return $this->belongsTo('App\Models\EventType');
     }
 }
